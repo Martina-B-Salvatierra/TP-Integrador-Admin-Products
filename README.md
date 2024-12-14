@@ -72,4 +72,3 @@ El sistema consta de cinco pantallas principales:
 
 ## Licencia
 Este proyecto se distribuye bajo la licencia MIT. Puedes consultarla en el archivo LICENSE.
-
