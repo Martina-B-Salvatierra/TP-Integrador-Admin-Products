@@ -38,7 +38,7 @@ El sistema consta de cinco pantallas principales:
 ├── README.md                # Documentación del proyecto
 
 ## Instalación
-1. Clonar este repositorio: git clone 
+1. Clonar este repositorio: git clone https://github.com/Martina-B-Salvatierra/TP-Integrador-Admin-Products.git
 2. Importar la base de datos:
 - Abrir phpMyAdmin o usar una herramienta de línea de comandos.
 - Crear una base de datos llamada tienda.
@@ -57,7 +57,7 @@ El sistema consta de cinco pantallas principales:
 - Eliminar productos.
 
 ## Capturas de pantalla
-Vista del cliente
+[Vista del cliente] 
 Gestión de productos
 Formulario de alta de productos
 
