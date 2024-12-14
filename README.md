@@ -69,6 +69,3 @@ El sistema consta de cinco pantallas principales:
 ## Autor
 - Martina Salvatierra
 - Curso: Programación Web Back End - 2024.02
-
-## Licencia
-Este proyecto se distribuye bajo la licencia MIT. Puedes consultarla en el archivo LICENSE.
