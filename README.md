@@ -57,9 +57,9 @@ El sistema consta de cinco pantallas principales:
 - Eliminar productos.
 
 ## Capturas de pantalla
-[Vista del cliente] 
-Gestión de productos
-Formulario de alta de productos
+- Vista del cliente 
+- Gestión de productos
+- Formulario de alta de productos
 
 ## Tecnologías utilizadas
 - Frontend: HTML5, CSS3.
