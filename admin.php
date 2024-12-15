@@ -12,7 +12,7 @@
     <title>Gestión de Productos</title>
     
     <!-- CSS -->
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="css/style.css">
 
     <!-- Google Fonts (Poppins) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -1,3 +1,10 @@
+:root {
+    --ink-color: #282928;
+    --charcoal-color: #363838;
+    --papel-color: #f9f6ef;
+    --canvas-color: #eae6e0;
+}
+
 * {
     box-sizing: border-box;
     padding: 0;
