@@ -1,33 +1,24 @@
-<?php // Pantalla de login
-// Redirigir al administrador si está "logueado"
-if (isset($_POST['submit'])) {
-    header('Location: admin.php'); // Redirige a la página de administración
-    exit;
-}
-?>
-
-
-<!DOCTYPE html>
+<!DOCTYPE html>  <!-- Pantalla de login -->
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Administrador</title>
+    <title>Iniciar Sesión</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="login-container">
-        <h1>Iniciar Sesión</h1>
-        <form action="login.php" method="POST">
-            <div class="form-group">
+        <h1 class="login-title">Inicio de Sesión</h1>
+        <form action="admin.php" method="POST" class="login-form">
+            <div class="login-input-group">
                 <label for="username">Usuario</label>
-                <input type="text" id="username" name="username" required>
+                <input type="text" id="username" name="username" placeholder="Ingrese su usuario" required>
             </div>
-            <div class="form-group">
+            <div class="login-input-group">
                 <label for="password">Contraseña</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" required>
             </div>
-            <button type="submit" name="submit" class="btn-submit">Acceder</button>
+            <button type="submit" class="btn-login">Acceder</button>
         </form>
     </div>
 </body>

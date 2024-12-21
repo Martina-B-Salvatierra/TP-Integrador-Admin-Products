@@ -18,11 +18,11 @@ $productos = obtenerProductos();
 </head>
 <body>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Bienvenido a nuestra tienda</h1>
-        <p>Descubre nuestros productos exclusivos.</p>
-    </section>
+    <!-- Título principal -->
+    <header class="main-header">
+        <h1>Productos Disponibles</h1>
+        <p>Descubre nuestra selección de productos destacados.</p>
+    </header>
 
     <!-- Contenedor de productos -->
     <div class="product-container">
@@ -31,7 +31,7 @@ $productos = obtenerProductos();
                 <img src="images/<?php echo $producto['imagen']; ?>" alt="<?php echo $producto['nombre']; ?>" class="product-image">
                 <h2 class="product-name"><?php echo $producto['nombre']; ?></h2>
                 <p class="product-price"><?php echo "$" . number_format($producto['precio'], 2); ?></p>
-                <button class="add-to-cart">Agregar al carrito</button>
+                <button class="action-button">Agregar al carrito</button>
             </div>
         <?php endwhile; ?>
     </div>
