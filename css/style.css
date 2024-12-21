@@ -1,14 +1,21 @@
 :root {
-    --background-color: #f2f1f6;
-    --shadow-dark: #d1d0d5;
-    --shadow-light: #ffffff;
-    --text-color: #555;
-    --placeholder-color: #aaa;
+    /* Colores principales */
+    --background-color: #f2f1f6; /* Color de fondo general */
+    --text-color: #555; /* Color principal para el texto */
+
+    /* Sombras para neumorfismo */
+    --shadow-dark: #d1d0d5; /* Sombra inferior/oscura */
+    --shadow-light: #ffffff; /* Sombra superior/clara */
+
+    /* Colores de acento */
+    --accent-red: #F44336; /* Color de acento para mensajes de error o advertencias */
+    --accent-green: #4CAF50; /* Color de acento para mensajes de éxito */
 
     /* Fuentes */
-    --font-primary: 'Poppins', sans-serif; /* Encabezados, botones, elementos destacados */
-    --font-secondary: 'Open Sans', sans-serif; /* Cuerpo de texto y campos */
+    --font-primary: 'Poppins', sans-serif; /* Para encabezados, botones y elementos destacados */
+    --font-secondary: 'Open Sans', sans-serif; /* Para el cuerpo de texto y formularios */
 }
+
 
 /* Reset de márgenes y paddings */
 * {
@@ -17,30 +24,37 @@
     box-sizing: border-box;
 }
 
-/* Estilo general */
+/* Estilo general para mantener consistencia */
 body {
     background-color: var(--background-color);
     font-family: var(--font-secondary);
     color: var(--text-color);
     margin: 0;
     padding: 20px;
+    box-sizing: border-box;
 }
 
 /* Header principal */
 .main-header {
+    height: 40vh;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 30px;
 }
 
-.main-header h1 {
+h1 {
     font-family: var(--font-primary);
     font-size: 2em;
     color: var(--text-color);
+    margin: 0;
 }
 
-.main-header p {
-    font-size: 1.2em;
-    color: var(--placeholder-color);
+p {
+    font-size: 1em;
+    color: var(--text-color);
     margin-top: 10px;
 }
 
@@ -59,12 +73,11 @@ body {
     box-shadow: 10px 10px 15px var(--shadow-dark), -10px -10px 15px var(--shadow-light);
     padding: 20px;
     text-align: center;
-    transition: transform 0.2s, box-shadow 0.3s;
+    transition: transform 0.2s;
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 15px 15px 20px var(--shadow-dark), -15px -15px 20px var(--shadow-light);
+    transform: translateY(-10px);
 }
 
 /* Imagen de producto */
@@ -75,13 +88,14 @@ body {
     border-radius: 10px;
 }
 
-/* Nombre y precio del producto */
+/* Nombre del producto */
 .product-name {
     font-family: var(--font-primary);
     font-size: 1.2em;
     margin-top: 15px;
 }
 
+/* Precio del producto */
 .product-price {
     font-size: 1em;
     margin-top: 10px;
@@ -106,7 +120,9 @@ body {
     color: var(--background-color);
 }
 
-/* Tablas */
+
+
+/* Contenedor de la tabla */
 .table-container {
     margin: 20px auto;
     width: 90%;
@@ -118,6 +134,9 @@ body {
     overflow-x: auto;
 }
 
+
+
+/* Tabla */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -128,28 +147,109 @@ table {
 table th, table td {
     padding: 10px;
     border-bottom: 1px solid var(--shadow-dark);
-    vertical-align: middle;
-    text-align: left;
+    vertical-align: middle; /* Centra contenido verticalmente */
 }
 
 table th {
     font-family: var(--font-primary);
     font-weight: 600;
+    text-align: left; /* Alineamos los títulos de las columnas por defecto */
+}
+
+table td {
+    text-align: left; /* Alineamos el contenido de las celdas por defecto */
+}
+
+/* Centramos las celdas de las columnas específicas */
+table th:nth-child(1), /* Imagen */
+table th:nth-child(4), /* Precio */
+table th:nth-child(5) { /* Acciones */
+    text-align: center; /* Títulos centrados */
+}
+
+/* Ocultar solo el título de la columna Imagen, pero mantener el espacio */
+table th:nth-child(1) {
+    visibility: hidden; /* Oculta el título de la columna Imagen */
+}
+
+/* Centramos el contenido de las celdas correspondientes */
+table td:nth-child(1), /* Imagen */
+table td:nth-child(4), /* Precio */
+table td:nth-child(5) { /* Acciones */
+    text-align: center; /* Contenido centrado */
+}
+
+table tr {
+    height: 100px; /* Fija la altura de las filas */
 }
 
 table tr img {
-    width: 50px;
+    width: 50px; /* Ajusta el tamaño de las miniaturas */
     height: 50px;
-    object-fit: cover;
+    object-fit: cover; /* Asegura que las imágenes mantengan proporción */
     border-radius: 5px;
     box-shadow: 2px 2px 5px var(--shadow-dark), -2px -2px 5px var(--shadow-light);
 }
 
-/* Formularios */
+/* Columna Descripción */
+table td.description {
+    max-width: 300px; /* Limita el ancho de la columna descripción */
+    word-wrap: break-word; /* Permite que el texto se divida y se ajuste dentro de la celda */
+    overflow-wrap: break-word; /* Asegura que el texto largo se ajuste correctamente */
+    white-space: normal; /* Permite que el texto ocupe varias líneas si es necesario */
+}
+
+/* Columna Precio con más espacio a los costados */
+table td:nth-child(4) {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Botones */
+.action-buttons button {
+    font-family: var(--font-primary);
+    border: none;
+    padding: 5px 15px;
+    margin: 0 5px; 
+    border-radius: 5px;
+    color: var(--background-color);
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button.edit {
+    background-color: #4CAF50; /* Verde */
+}
+
+button.delete {
+    background-color: #F44336; /* Rojo */
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+
+/* Título fuera del contenedor */
+.title-container {
+    width: 80%;
+    max-width: 600px;
+    margin: 50px auto;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.title-container h1 {
+    font-family: var(--font-primary);
+    color: var(--text-color);
+    margin: 0;
+}
+
+/* Estilos para el formulario de agregar producto */
 .container {
     width: 80%;
     max-width: 600px;
-    margin: 20px auto;
+    margin: 0 auto;
     padding: 20px;
     background-color: var(--background-color);
     border-radius: 10px;
@@ -163,11 +263,12 @@ table tr img {
 .form-group label {
     font-family: var(--font-primary);
     color: var(--text-color);
-    margin-bottom: 5px;
     display: block;
+    margin-bottom: 5px;
 }
 
-.form-group input, .form-group textarea {
+.form-group input,
+.form-group textarea {
     width: 100%;
     padding: 10px;
     border-radius: 5px;
@@ -176,8 +277,16 @@ table tr img {
     color: var(--text-color);
 }
 
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group input[type="file"] {
+    padding: 5px;
+}
+
 button.btn-submit {
-    background-color: #4CAF50;
+    background-color: #4CAF50; /* Verde */
     color: var(--background-color);
     border: none;
     padding: 10px 20px;
@@ -193,7 +302,81 @@ button.btn-submit:hover {
     background-color: #45a049;
 }
 
-/* Login */
+
+/* Título fuera del contenedor */
+.title-container {
+    width: 80%;
+    max-width: 600px;
+    margin: 50px auto;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.title-container h1 {
+    font-family: var(--font-primary);
+    color: var(--text-color);
+    margin: 0;
+}
+
+/* Estilos para el formulario de editar producto */
+.container {
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px var(--shadow-dark), -10px -10px 20px var(--shadow-light);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-family: var(--font-primary);
+    color: var(--text-color);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--shadow-dark);
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group input[type="file"] {
+    padding: 5px;
+}
+
+button.btn-submit {
+    background-color: #4CAF50; /* Verde */
+    color: var(--background-color);
+    border: none;
+    padding: 10px 20px;
+    width: 100%;
+    border-radius: 5px;
+    font-family: var(--font-primary);
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button.btn-submit:hover {
+    transform: scale(1.05);
+    background-color: #45a049;
+}
+
+
+/* Login: contenedor principal */
 .login-container {
     width: 90%;
     max-width: 400px;
@@ -205,6 +388,7 @@ button.btn-submit:hover {
     text-align: center;
 }
 
+/* Login: título */
 .login-title {
     font-family: var(--font-primary);
     color: var(--text-color);
@@ -212,17 +396,44 @@ button.btn-submit:hover {
     margin-bottom: 20px;
 }
 
-.login-input-group label, .login-input-group input {
-    margin-bottom: 10px;
+/* Login: grupo de entrada */
+.login-input-group {
+    margin-bottom: 20px;
+    text-align: left;
 }
 
-.btn-login {
-    background-color: #4CAF50;
-    border-radius: 5px;
+.login-input-group label {
+    font-family: var(--font-secondary);
+    color: var(--text-color);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.login-input-group input {
+    width: 100%;
     padding: 10px;
+    font-size: 14px;
+    font-family: var(--font-secondary);
+    color: var(--text-color);
+    border: 1px solid var(--shadow-dark);
+    border-radius: 5px;
+    background-color: var(--background-color);
+    outline: none;
+}
+
+/* Login: botón */
+.btn-login {
+    width: 100%;
+    padding: 10px 15px;
+    font-family: var(--font-primary);
+    font-size: 16px;
     color: var(--background-color);
+    background-color: #4CAF50; /* Verde */
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    transition: transform 0.3s, background 0.3s;
+    transition: transform 0.2s, background 0.3s;
+    box-shadow: 5px 5px 10px var(--shadow-dark), -5px -5px 10px var(--shadow-light);
 }
 
 .btn-login:hover {
