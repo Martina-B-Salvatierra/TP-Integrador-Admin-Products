@@ -1,17 +1,24 @@
-<?php // Configuración de la base de datos
+<?php
+// Conexión a la base de datos "tienda"
 
-    // Datos de conexión a la base de datos
-    $servidor = "localhost";   
-    $usuario = "root";         
-    $contraseña = "";          
-    $nombre_base_de_datos = "tienda"; 
+    // Configuración de la base de datos
+    $servidor = 'localhost'; // Dirección del servidor MySQL
+    $usuario = 'root';       // Usuario de la base de datos
+    $contraseña = '';        // Contraseña de la base de datos
+    $baseDeDatos = 'tienda'; // Nombre de la base de datos
 
     // Crear la conexión
-    $mysqli = new mysqli($servidor, $usuario, $contraseña, $nombre_base_de_datos);
+    $conexion = mysqli_connect($servidor, $usuario, $contraseña, $baseDeDatos);
 
-    // Comprobar si la conexión fue exitosa
-    if ($mysqli->connect_error) {
-        die("Conexión fallida: " . $mysqli->connect_error);
+    // Verificar la conexión
+    if (!$conexion) {
+        die("Conexión fallida: " . mysqli_connect_error());
     }
+
+    // Establecer la codificación de caracteres a UTF-8 para evitar problemas con caracteres especiales
+    mysqli_set_charset($conexion, 'utf8');
+
+    // Para cerrar la conexión cuando ya no se necesite:
+    // mysqli_close($conexion);
 
 ?>

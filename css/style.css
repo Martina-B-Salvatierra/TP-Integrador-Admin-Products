@@ -1,47 +1,57 @@
+  /* styles.css */
 :root {
-    --ink-color: #282928;
-    --charcoal-color: #363838;
-    --papel-color: #f9f6ef;
-    --canvas-color: #eae6e0;
+    --background-color: #f2f1f6;
+    --shadow-dark: #d1d0d5;
+    --shadow-light: #ffffff;
+    --text-color: #555;
+    --placeholder-color: #aaa;
+
+    /* Fuentes */
+    --font-primary: 'Poppins', sans-serif; /* Para encabezados, botones y elementos destacados */
+    --font-secondary: 'Open Sans', sans-serif; /* Para el cuerpo de texto, descripciones y campos de formulario */
+
 }
 
-/*
-f4f4f4
-ececec
-f0ecec 
 
-2c2c2c
-242425
-1c1c1c
-*/
-
-/* Reset */
+/* Reset de márgenes y paddings */
 * {
-    box-sizing: border-box;
+    margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales */
+body {
+    background-color: var(--background-color);
+    font-family: var(--font-secondary);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: white;
+    padding: 50px 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    font-family: var(--font-primary);
+    font-size: 2.5em;
     margin: 0;
 }
 
-
-
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
+.hero p {
+    font-size: 1.2em;
+    margin-top: 10px;
 }
 
-header {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-}
-
-h1 {
-    font-size: 2.5rem;
-}
-
+/* Contenedor de productos */
 .product-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -49,48 +59,166 @@ h1 {
     padding: 20px;
 }
 
+/* Tarjetas de productos */
 .product-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 10px 10px 15px var(--shadow-dark), -10px -10px 15px var(--shadow-light);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s;
 }
 
 .product-card:hover {
     transform: translateY(-10px);
 }
 
-.product-card img {
+.product-image {
     width: 100%;
-    height: 200px;
+    height: 250px;
     object-fit: cover;
+    border-radius: 10px;
 }
 
-.product-card h3 {
-    font-size: 1.5rem;
-    margin: 15px;
+.product-name {
+    font-family: var(--font-primary);
+    font-size: 1.5em;
+    margin-top: 15px;
 }
 
-.product-card p {
-    font-size: 1rem;
-    color: #666;
-    margin: 0 15px;
-    padding-bottom: 15px;
+.product-price {
+    font-size: 1.2em;
+    margin-top: 10px;
+    color: #333;
 }
 
-.price {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #007BFF;
-    margin: 15px;
+.add-to-cart {
+    background: none;
+    border: 2px solid #2575fc;
+    color: #2575fc;
+    font-size: 1em;
+    padding: 10px 20px;
+    margin-top: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-footer {
-    background-color: #333;
+.add-to-cart:hover {
+    background-color: #2575fc;
     color: #fff;
-    text-align: center;
-    padding: 10px;
 }
 
+
+/* Contenedor de la tabla */
+.table-container {
+    margin: 20px auto;
+    width: 90%;
+    max-width: 1200px;
+    background: var(--background-color);
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px var(--shadow-dark), -10px -10px 20px var(--shadow-light);
+    padding: 20px;
+    overflow-x: auto;
+}
+
+h1 {
+    font-family: var(--font-primary);
+    font-size: 2rem;
+    color: var(--text-color);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-secondary);
+    color: var(--text-color);
+}
+
+table th, table td {
+    padding: 10px;
+    border-bottom: 1px solid var(--shadow-dark);
+    vertical-align: middle; /* Centra contenido verticalmente */
+}
+
+table th {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    text-align: left; /* Alineamos los títulos de las columnas por defecto */
+}
+
+table td {
+    text-align: left; /* Alineamos el contenido de las celdas por defecto */
+}
+
+/* Centramos las celdas de las columnas específicas */
+table th:nth-child(1), /* Imagen */
+table th:nth-child(4), /* Precio */
+table th:nth-child(5) { /* Acciones */
+    text-align: center; /* Títulos centrados */
+}
+
+/* Ocultar solo el título de la columna Imagen, pero mantener el espacio */
+table th:nth-child(1) {
+    visibility: hidden; /* Oculta el título de la columna Imagen */
+}
+
+/* Centramos el contenido de las celdas correspondientes */
+table td:nth-child(1), /* Imagen */
+table td:nth-child(4), /* Precio */
+table td:nth-child(5) { /* Acciones */
+    text-align: center; /* Contenido centrado */
+}
+
+table tr {
+    height: 100px; /* Fija la altura de las filas */
+}
+
+table tr img {
+    width: 50px; /* Ajusta el tamaño de las miniaturas */
+    height: 50px;
+    object-fit: cover; /* Asegura que las imágenes mantengan proporción */
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px var(--shadow-dark), -2px -2px 5px var(--shadow-light);
+}
+
+/* Columna Descripción */
+table td.description {
+    max-width: 300px; /* Limita el ancho de la columna descripción */
+    word-wrap: break-word; /* Permite que el texto se divida y se ajuste dentro de la celda */
+    overflow-wrap: break-word; /* Asegura que el texto largo se ajuste correctamente */
+    white-space: normal; /* Permite que el texto ocupe varias líneas si es necesario */
+}
+
+/* Columna Precio con más espacio a los costados */
+table td:nth-child(4) {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Botones */
+.action-buttons button {
+    font-family: var(--font-primary);
+    border: none;
+    padding: 5px 15px;
+    margin: 0 5px; 
+    border-radius: 5px;
+    color: var(--background-color);
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button.edit {
+    background-color: #4CAF50; /* Verde */
+}
+
+button.delete {
+    background-color: #F44336; /* Rojo */
+}
+
+button:hover {
+    transform: scale(1.05);
+}
