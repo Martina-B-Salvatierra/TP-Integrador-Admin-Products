@@ -27,14 +27,21 @@ TPI-AdminProducts
 ├── /css/ 
 │ └── style.css # Archivo principal de estilos 
 ├── /images/ 
-│ ├── imagen1.jpg 
-│ ├── imagen2.jpg 
-│ └── imagen3.jpg 
+│ ├── auriculares_bluetooth.webp 
+│ ├── botas_senderismo.webp 
+│ ├── camisa_seda.webp 
+│ ├── camiseta.webp 
+│ ├── chaqueta.webp 
+│ ├── gafas_sol.webp 
+│ ├── mochila_deportiva.webp  
+│ ├── pantalon.webp 
+│ ├── reloj_inteligente.webp 
+│ └── zapatillas.webp
 ├── /php/ 
 │ ├── conexion.php # Conexión a la base de datos 
 │ ├── functions.php # Funciones reutilizables (CRUD para productos) 
 ├── /sql/ 
-│ └── tienda.sql # Script para crear la base de datos y la tabla productos 
+│ └── productos.sql # Script para crear la base de datos y la tabla productos 
 ├── index.php # Visualización de productos para el cliente 
 ├── login.php # Pantalla de login (solo redirige) 
 ├── admin.php # Pantalla principal del administrador 
