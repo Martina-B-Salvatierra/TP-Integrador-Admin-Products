@@ -251,12 +251,33 @@ button.delete:hover {
     color: var(--background-color);
 }
 
+.add-product-btn-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.add-product-btn {
+    font-family: var(--font-primary);
+    font-size: 14px;
+    padding: 8px 16px;
+    margin-top: 20px;
+    background-color: none;
+    border: 2px solid var(--text-color);
+    cursor: pointer;
+    color: var(--text-color);
+    transition: background 0.3s, color 0.3s;
+}
+
+.add-product-btn:hover {
+    background-color: var(--text-color);
+    color: var(--background-color);
+}
 
 /* Estilos para el formulario de agregar producto y editar producto */
 .container {
     width: 80%;
     max-width: 600px;
-    margin: 0 auto;
+    margin: 0 auto 40px;
     padding: 20px;
     background-color: var(--background-color);
     border-radius: 10px;

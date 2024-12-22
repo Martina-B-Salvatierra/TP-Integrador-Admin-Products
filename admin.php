@@ -70,5 +70,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['eliminar'])) {
             </tbody>
         </table>
     </div>
+
+    <!-- Botón Agregar Producto en la parte inferior -->
+    <div class="add-product-btn-container">
+        <a href="add_product.php">
+            <button class="add-product-btn">Agregar Nuevo Producto</button>
+        </a>
+    </div>
 </body>
 </html>
