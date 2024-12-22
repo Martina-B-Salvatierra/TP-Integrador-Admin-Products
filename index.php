@@ -31,7 +31,7 @@ $productos = obtenerProductos();
                 <img src="images/<?php echo $producto['imagen']; ?>" alt="<?php echo $producto['nombre']; ?>" class="product-image">
                 <h2 class="product-name"><?php echo $producto['nombre']; ?></h2>
                 <p class="product-price"><?php echo "$" . number_format($producto['precio'], 2); ?></p>
-                <button class="action-button">Agregar al carrito</button>
+                <button class="product-button">Agregar al carrito</button>
             </div>
         <?php endwhile; ?>
     </div>

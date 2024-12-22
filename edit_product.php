@@ -21,9 +21,12 @@ if (isset($_GET['id'])) {
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="title-container">
+
+    <!-- Título -->
+    <header class="header-product">
         <h1>Editar Producto</h1>
-    </div>
+    </header>
+
     <div class="container">
         <?php if (isset($producto)): ?>
         <form action="edit_product.php?id=<?php echo $producto['id']; ?>" method="POST" enctype="multipart/form-data">

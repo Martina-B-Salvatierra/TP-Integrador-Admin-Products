@@ -28,7 +28,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['eliminar'])) {
     <title>Administración de Productos</title>
 </head>
 <body>
-    <h1>Administración de Productos</h1>
+
+    <!-- Título -->
+    <header class="header-product">
+        <h1>Administración de Productos</h1>
+    </header>
+    
     <div class="table-container">
         <?php if (!empty($_GET['mensaje'])): ?>
             <p style="color: green;"><?php echo htmlspecialchars($_GET['mensaje']); ?></p>

@@ -31,7 +31,38 @@ body {
     color: var(--text-color);
     margin: 0;
     padding: 20px;
-    box-sizing: border-box;
+}
+
+h1 {
+    color: var(--text-color);
+    font-family: var(--font-primary);
+    font-size: 2rem;
+    text-align: center;
+    margin: 10px 5px;
+}
+
+p {
+    color: var(--text-color);
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* Nombre del producto */
+.product-name  {
+    color: var(--text-color);
+    font-family: var(--font-primary);
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 10px 0px 5px;
+}
+
+/* Precio del producto */
+.product-price {
+    color: var(--text-color);
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    margin: 0 0 10px;
 }
 
 /* Header principal */
@@ -42,20 +73,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 30px;
-}
-
-h1 {
-    font-family: var(--font-primary);
-    font-size: 2em;
-    color: var(--text-color);
-    margin: 0;
-}
-
-p {
-    font-size: 1em;
-    color: var(--text-color);
-    margin-top: 10px;
+    margin: 30px 0;
 }
 
 /* Contenedor de productos */
@@ -69,7 +87,7 @@ p {
 /* Tarjetas de productos */
 .product-card {
     background-color: var(--background-color);
-    border-radius: 15px;
+    border-radius: 10px;
     box-shadow: 10px 10px 15px var(--shadow-dark), -10px -10px 15px var(--shadow-light);
     padding: 20px;
     text-align: center;
@@ -84,43 +102,28 @@ p {
 .product-image {
     width: 100%;
     height: 200px;
+    margin-bottom: 20px;
     object-fit: cover;
     border-radius: 10px;
 }
 
-/* Nombre del producto */
-.product-name {
-    font-family: var(--font-primary);
-    font-size: 1.2em;
-    margin-top: 15px;
-}
-
-/* Precio del producto */
-.product-price {
-    font-size: 1em;
-    margin-top: 10px;
-    color: var(--text-color);
-}
-
 /* Botón de acción */
-.action-button {
-    background: none;
-    border: 2px solid var(--text-color);
+.product-button {
     color: var(--text-color);
-    font-size: 1em;
-    padding: 10px 20px;
-    margin-top: 15px;
-    border-radius: 5px;
+    font-family: var(--font-primary);
+    font-size: 13.3333px;
+    padding: 8px 16px;
+    margin: 10px 0;
+    background-color: none;
+    border: 2px solid var(--text-color);
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
 }
 
-.action-button:hover {
+.product-card:hover .product-button {
     background-color: var(--text-color);
     color: var(--background-color);
 }
-
-
 
 /* Contenedor de la tabla */
 .table-container {
@@ -134,7 +137,14 @@ p {
     overflow-x: auto;
 }
 
-
+.header-product {
+    height: 24vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 /* Tabla */
 table {
@@ -208,44 +218,41 @@ table td:nth-child(4) {
 /* Botones */
 .action-buttons button {
     font-family: var(--font-primary);
-    border: none;
     padding: 5px 15px;
     margin: 0 5px; 
-    border-radius: 5px;
-    color: var(--background-color);
+    background-color: none;
     cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-}
-
-button.edit {
-    background-color: #4CAF50; /* Verde */
-}
-
-button.delete {
-    background-color: #F44336; /* Rojo */
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
 }
 
 button:hover {
     transform: scale(1.05);
 }
 
-
-/* Título fuera del contenedor */
-.title-container {
-    width: 80%;
-    max-width: 600px;
-    margin: 50px auto;
-    padding-bottom: 10px;
-    text-align: center;
+/* Verde */
+button.edit { 
+    color: var(--accent-green);
+    border: 2px solid var(--accent-green);
 }
 
-.title-container h1 {
-    font-family: var(--font-primary);
-    color: var(--text-color);
-    margin: 0;
+button.edit:hover {
+    background-color: var(--accent-green); 
+    color: var(--background-color);
 }
 
-/* Estilos para el formulario de agregar producto */
+/* Rojo */
+button.delete {
+    color: var(--accent-red);
+    border: 2px solid var(--accent-red);
+}
+
+button.delete:hover {
+    background-color: var(--accent-red); 
+    color: var(--background-color);
+}
+
+
+/* Estilos para el formulario de agregar producto y editar producto */
 .container {
     width: 80%;
     max-width: 600px;
@@ -264,7 +271,7 @@ button:hover {
     font-family: var(--font-primary);
     color: var(--text-color);
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
 }
 
 .form-group input,
@@ -277,81 +284,15 @@ button:hover {
     color: var(--text-color);
 }
 
-.form-group textarea {
-    resize: vertical;
-}
-
-.form-group input[type="file"] {
-    padding: 5px;
-}
-
-button.btn-submit {
-    background-color: #4CAF50; /* Verde */
-    color: var(--background-color);
-    border: none;
-    padding: 10px 20px;
-    width: 100%;
-    border-radius: 5px;
-    font-family: var(--font-primary);
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-}
-
-button.btn-submit:hover {
-    transform: scale(1.05);
-    background-color: #45a049;
-}
-
-
-/* Título fuera del contenedor */
-.title-container {
-    width: 80%;
-    max-width: 600px;
-    margin: 50px auto;
-    padding-bottom: 10px;
-    text-align: center;
-}
-
-.title-container h1 {
-    font-family: var(--font-primary);
-    color: var(--text-color);
-    margin: 0;
-}
-
-/* Estilos para el formulario de editar producto */
-.container {
-    width: 80%;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: var(--background-color);
-    border-radius: 10px;
-    box-shadow: 10px 10px 20px var(--shadow-dark), -10px -10px 20px var(--shadow-light);
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    font-family: var(--font-primary);
-    color: var(--text-color);
-    display: block;
-    margin-bottom: 5px;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
+.form-group input:focus,
+.form-group textarea:focus {
     border: 1px solid var(--shadow-dark);
-    background-color: var(--background-color);
-    color: var(--text-color);
+    outline: none;
 }
 
 .form-group textarea {
     resize: vertical;
+    font-family: var(--font-primary);
 }
 
 .form-group input[type="file"] {
@@ -359,22 +300,24 @@ button.btn-submit:hover {
 }
 
 button.btn-submit {
-    background-color: #4CAF50; /* Verde */
-    color: var(--background-color);
-    border: none;
-    padding: 10px 20px;
-    width: 100%;
-    border-radius: 5px;
     font-family: var(--font-primary);
+    font-size: 14px;
+    padding: 14px;
+    margin: 0 5px; 
+    width: 100%;
+    background-color: none;
+    border: 2px solid var(--text-color);
     cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
+    color: var(--text-color);
+    transition: background 0.3s, color 0.3s;
 }
+
 
 button.btn-submit:hover {
-    transform: scale(1.05);
-    background-color: #45a049;
+    transform: none;
+    background-color: var(--text-color);
+    color: var(--background-color);
 }
-
 
 /* Login: contenedor principal */
 .login-container {
@@ -393,7 +336,7 @@ button.btn-submit:hover {
     font-family: var(--font-primary);
     color: var(--text-color);
     font-size: 24px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 /* Login: grupo de entrada */
@@ -423,20 +366,20 @@ button.btn-submit:hover {
 
 /* Login: botón */
 .btn-login {
-    width: 100%;
-    padding: 10px 15px;
     font-family: var(--font-primary);
-    font-size: 16px;
-    color: var(--background-color);
-    background-color: #4CAF50; /* Verde */
-    border: none;
-    border-radius: 5px;
+    font-size: 14px;
+    padding: 10px;
+    margin-top: 20px;
+    width: 100%;
+    background-color: none;
+    border: 2px solid var(--text-color);
     cursor: pointer;
-    transition: transform 0.2s, background 0.3s;
-    box-shadow: 5px 5px 10px var(--shadow-dark), -5px -5px 10px var(--shadow-light);
+    color: var(--text-color);
+    transition: background 0.3s, color 0.3s;
 }
 
 .btn-login:hover {
-    transform: scale(1.05);
-    background-color: #45a049;
+    transform: none;
+    background-color: var(--text-color);
+    color: var(--background-color);
 }

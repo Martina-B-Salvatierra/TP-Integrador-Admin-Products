@@ -13,9 +13,11 @@ include('php/conexion.php');
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="title-container">
+    <!-- Título -->
+    <header class="header-product">
         <h1>Agregar Nuevo Producto</h1>
-    </div>
+    </header>
+    
     <div class="container">
         <form action="add_product.php" method="POST" enctype="multipart/form-data">
             <div class="form-group">
